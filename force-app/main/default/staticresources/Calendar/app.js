@@ -21,6 +21,7 @@
   let eventSource = {
     id: 'events',
     display: 'block',
+    color: PARAMETERS.eventColor,
     events: function(info, onSuccess, onFailure) {
       CalendarController.getEvents(
         PARAMETERS.calendarId,
@@ -86,7 +87,7 @@
 
   const CONFIG = {
     allDaySlot: PARAMETERS.allDaySlot,
-    businessHours: PARAMETERS.businessHoursId,
+    businessHours: businessHours,
     buttonText: {
       today: 'Today',
       month: 'Month',
@@ -152,40 +153,53 @@
     businessHours.push(
       {
         daysOfWeek: [0],
-        startTime: r.SundayStartTime,
-        endTime: r.SundayEndTime
+        startTime: convertValue(r.SundayStartTime),
+        endTime: convertValue(r.SundayEndTime)
       },
       {
         daysOfWeek: [1],
-        startTime: r.MondayStartTime,
-        endTime: r.MondayEndTime
+        startTime: convertValue(r.MondayStartTime),
+        endTime: convertValue(r.MondayEndTime)
       },
       {
         daysOfWeek: [2],
-        startTime: r.TuesdayStartTime,
-        endTime: r.TuesdayEndTime
+        startTime: convertValue(r.TuesdayStartTime),
+        endTime: convertValue(r.TuesdayEndTime)
       },
       {
         daysOfWeek: [3],
-        startTime: r.WednesdayStartTime,
-        endTime: r.WednesdayEndTime
+        startTime: convertValue(r.WednesdayStartTime),
+        endTime: convertValue(r.WednesdayEndTime)
       },
       {
         daysOfWeek: [4],
-        startTime: r.ThursdayStartTime,
-        endTime: r.ThursdayEndTime
+        startTime: convertValue(r.ThursdayStartTime),
+        endTime: convertValue(r.ThursdayEndTime)
       },
       {
         daysOfWeek: [5],
-        startTime: r.FridayStartTime,
-        endTime: r.FridayEndTime
+        startTime: convertValue(r.FridayStartTime),
+        endTime: convertValue(r.FridayEndTime)
       },
       {
         daysOfWeek: [6],
-        startTime: r.SaturdayStartTime,
-        endTime: r.SaturdayEndTime
+        startTime: convertValue(r.SaturdayStartTime),
+        endTime: convertValue(r.SaturdayEndTime)
       }
     );
+    // salesforce returns 0 for all day and null/undefined for no hours
+    // so we need to convert this to something fullcalendar understands
+    function convertValue(value) {
+      // a business hour thats undefined should be blocked all day (No Hours)
+      if (value === undefined) {
+        return 0;
+      }
+      // a business hour thats 0 should be available all day (24 Hours)
+      if (value === 0) {
+        return null;
+      }
+      return value
+    }
   }
 
   //* Fullcalendar events
@@ -212,6 +226,7 @@
   }
 
   function onSelect(info) {
+    console.dir(info);
     if (!CONFIG.selectable) {
       return;
     }
@@ -319,7 +334,10 @@
       });
   });
 
-  $('#alert-dismiss').on('click', function() {
+  //* Listeners
+
+  $('#alert-dismiss').on('click', function(e) {
+    e.preventDefault();
     $('.alert').css('display', 'none');
   });
 
@@ -339,5 +357,11 @@
         .catch(e => showAlert(e.type, e.message));
     }
   });
+
+  //* Interval
+
+  setInterval(() => {
+    CALENDAR.refetchEvents();
+  }, 5 * 60 * 1000);
 
 }());

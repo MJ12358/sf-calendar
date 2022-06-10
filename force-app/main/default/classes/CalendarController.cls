@@ -28,7 +28,7 @@
 /**
  *  This class and its methods must be "global"
  *    this is because the VF page is inside of an iframe
- *    [more info here](https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_js_remoting_scope_visibility.htm)
+ *    https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_js_remoting_scope_visibility.htm
  */
 
 global with sharing class CalendarController {
@@ -36,8 +36,10 @@ global with sharing class CalendarController {
   @RemoteAction
   global static BusinessHours getBusinessHours(Id recordId) {
     return [
-      SELECT MondayStartTime, MondayEndTime, TuesdayStartTime, TuesdayEndTime, WednesdayStartTime, WednesdayEndTime, 
-            ThursdayStartTime, ThursdayEndTime, FridayStartTime, FridayEndTime, SaturdayStartTime, SaturdayEndTime, SundayStartTime, SundayEndTime 
+      SELECT Id, SundayStartTime, SundayEndTime, MondayStartTime, MondayEndTime, 
+        TuesdayStartTime, TuesdayEndTime, WednesdayStartTime, WednesdayEndTime, 
+        ThursdayStartTime, ThursdayEndTime, FridayStartTime, FridayEndTime, 
+        SaturdayStartTime, SaturdayEndTime 
       FROM BusinessHours 
       WHERE Id = :recordId 
       LIMIT 1

@@ -12,6 +12,10 @@
     name="height"
     label="Height"
     description="The height of the calendar. Be sure to include the units." />
+  <design:attribute
+    name="eventColor"
+    label="Event Color"
+    description="The event color. This can be any CSS color such as #f00, #ff0000, rgb(255,0,0) or red." />
 	<design:attribute
     name="initialView"
     label="Initial View"
