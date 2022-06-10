@@ -17,7 +17,7 @@ A configurable drop-in calendar for Salesforce.
 
 # Usage
 
-* Head over to the lightning page of your choice
+* In the lightning app builder, edit the page of your choice
 * Find the "Calendar" component under "Custom"
 * Drag and drop it on the page
 
@@ -36,4 +36,21 @@ A configurable drop-in calendar for Salesforce.
   - The maximum time slot shown
 
 # Images
-Coming soon...
+
+![Screenshot](images/Capture.PNG)
+
+## View by Week
+
+![Screenshot_Week_View](images/Capture_Week_View.PNG)
+
+## View by Day
+
+![Screenshot_Day_View](images/Capture_Day_View.PNG)
+
+## Customize your event colors
+
+![Screenshot_Custom_Color](images/Capture_Custom_Color.PNG)
+
+## All customizations
+
+![Screenshot_Customizations](images/Capture_Customizations.PNG)
