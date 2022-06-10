@@ -16,6 +16,10 @@
     name="eventColor"
     label="Event Color"
     description="The event color. This can be any CSS color such as #f00, #ff0000, rgb(255,0,0) or red." />
+  <design:attribute
+    name="holidayColor"
+    label="Holiday Color"
+    description="The holiday color. This can be any CSS color such as #f00, #ff0000, rgb(255,0,0) or red." />
 	<design:attribute
     name="initialView"
     label="Initial View"

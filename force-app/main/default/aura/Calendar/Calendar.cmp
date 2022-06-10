@@ -4,6 +4,7 @@
   <aura:attribute name="calendarId" type="String" />
   <aura:attribute name="height" type="String" default="750px" />
   <aura:attribute name="eventColor" type="String" />
+  <aura:attribute name="holidayColor" type="String" default="purple" />
   <aura:attribute name="initialView" type="String" default="dayGridMonth" />
   <aura:attribute name="allDaySlot" type="Boolean" default="false" />
   <aura:attribute name="editable" type="Boolean" default="false" />
@@ -17,7 +18,7 @@
       class="slds-grow"
       frameborder="0"
       height="{#v.height}"
-      src="{!'/apex/Calendar?businessHoursId=' + v.businessHoursId + '&amp;calendarId=' + v.calendarId + '&amp;eventColor=' + v.eventColor + '&amp;allDaySlot=' + v.allDaySlot + '&amp;editable=' + v.editable + '&amp;initialView=' + v.initialView + '&amp;selectable=' + v.selectable + '&amp;weekNumbers=' + v.weekNumbers + '&amp;minTimeSlot=' + v.minTimeSlot + '&amp;maxTimeSlot=' + v.maxTimeSlot}"
+      src="{!'/apex/Calendar?businessHoursId=' + v.businessHoursId + '&amp;calendarId=' + v.calendarId + '&amp;eventColor=' + v.eventColor + '&amp;holidayColor=' + v.holidayColor + '&amp;allDaySlot=' + v.allDaySlot + '&amp;editable=' + v.editable + '&amp;initialView=' + v.initialView + '&amp;selectable=' + v.selectable + '&amp;weekNumbers=' + v.weekNumbers + '&amp;minTimeSlot=' + v.minTimeSlot + '&amp;maxTimeSlot=' + v.maxTimeSlot}"
       width="100%">
     </iframe>
   </div>

@@ -67,7 +67,7 @@ global with sharing class CalendarController {
     Datetime endDate = Datetime.newInstance(endTs);
 
     return [
-      SELECT Subject, Description, StartDateTime, EndDateTime, IsAllDayEvent 
+      SELECT Subject, Description, StartDateTime, EndDateTime, IsAllDayEvent, Type 
       FROM Event 
       WHERE (StartDateTime >= :startDate AND EndDateTime <= :endDate) AND OwnerId = :ownerId
     ];

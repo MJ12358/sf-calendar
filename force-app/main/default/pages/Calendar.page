@@ -17,6 +17,11 @@
 
   <body>
 
+    <!-- spinner -->
+    <section id="spinner">
+      <div></div>
+    </section>
+
     <!-- calendar -->
     <section id="calendar-container">
       <div id="calendar"></div>
@@ -77,6 +82,7 @@
         businessHoursId: '{!$CurrentPage.parameters.businessHoursId}',
         calendarId: '{!$CurrentPage.parameters.calendarId}',
         eventColor: '{!$CurrentPage.parameters.eventColor}',
+        holidayColor: '{!$CurrentPage.parameters.holidayColor}',
         allDaySlot: {!$CurrentPage.parameters.allDaySlot},
         editable: {!$CurrentPage.parameters.editable},
         initialView: '{!$CurrentPage.parameters.initialView}',

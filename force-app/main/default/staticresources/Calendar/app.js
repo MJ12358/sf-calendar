@@ -36,26 +36,25 @@
         }
       );
     },
-    success: function(response) {
-      return response.map(v => {
-        return {
-          id: v.Id,
-          start: v.StartDateTime,
-          end: v.EndDateTime,
-          title: v.Subject || v.Description,
-          allDay: v.IsAllDayEvent
-        };
-      });
-    },
     failure: function(event) {
-      // showAlert(event.type, event.message);
+      showAlert(event.type, event.message);
+    },
+    eventDataTransform: function(record) {
+      return {
+        id: record.Id,
+        start: record.StartDateTime,
+        end: record.EndDateTime,
+        title: record.Subject || record.Type,
+        description: record.Description,
+        allDay: record.IsAllDayEvent
+      };
     }
   };
 
   let holidaySource = {
     id: 'holidays',
     display: 'block',
-    color: 'purple',
+    color: PARAMETERS.holidayColor,
     events: function(info, onSuccess, onFailure) {
       CalendarController.getHolidays(
         info.start.getTime(),
@@ -81,8 +80,8 @@
       });
     },
     failure: function(event) {
-      // showAlert(event.type, event.message);
-    }
+      showAlert(event.type, event.message);
+    },
   };
 
   const CONFIG = {
@@ -121,6 +120,7 @@
     height: '100%',
     initialDate: new Date(),
     initialView: PARAMETERS.initialView,
+    loading: (b) => !b && $('#spinner').fadeOut(),
     moreLinkClick: 'popover',
     navLinks: true,
     nowIndicator: true,
@@ -226,7 +226,6 @@
   }
 
   function onSelect(info) {
-    console.dir(info);
     if (!CONFIG.selectable) {
       return;
     }
