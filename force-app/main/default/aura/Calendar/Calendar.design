@@ -1,0 +1,44 @@
+<design:component label="Calendar">
+
+	<design:attribute
+    name="businessHoursId"
+    label="Business Hours"
+    datasource="apex://CalendarBusinessHoursDesign" />
+	<design:attribute
+    name="calendarId"
+    label="Calendar"
+    datasource="apex://CalendarDesign" />
+	<design:attribute
+    name="height"
+    label="Height"
+    description="The height of the calendar. Be sure to include the units." />
+	<design:attribute
+    name="initialView"
+    label="Initial View"
+    datasource="dayGridMonth,dayGridWeek,timeGridWeek,timeGridDay,listWeek" />
+	<design:attribute
+    name="allDaySlot"
+    label="All Day Slot"
+    description="Show the all day slot." />
+	<design:attribute
+    name="editable"
+    label="Editable"
+    description="Allow updating events." />
+	<design:attribute
+    name="selectable"
+    label="Selectable"
+    description="Allow creating events." />
+	<design:attribute
+    name="weekNumbers"
+    label="Week Numbers"
+    description="Show week numbers." />
+	<design:attribute
+    name="minTimeSlot"
+    label="Minimum Time Slot"
+    datasource="00:00:00,01:00:00,02:00:00,03:00:00,04:00:00,05:00:00,06:00:00,07:00:00,08:00:00,09:00:00,10:00:00,11:00:00,12:00:00,13:00:00,14:00:00,15:00:00,16:00:00,17:00:00,18:00:00,19:00:00,20:00:00,21:00:00,22:00:00,23:00:00,24:00:00" />
+	<design:attribute
+    name="maxTimeSlot"
+    label="Maximum Time Slot"
+    datasource="00:00:00,01:00:00,02:00:00,03:00:00,04:00:00,05:00:00,06:00:00,07:00:00,08:00:00,09:00:00,10:00:00,11:00:00,12:00:00,13:00:00,14:00:00,15:00:00,16:00:00,17:00:00,18:00:00,19:00:00,20:00:00,21:00:00,22:00:00,23:00:00,24:00:00" />
+
+</design:component>

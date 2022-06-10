@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CalendarController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Used to give access to the &quot;Calendar&quot; component.</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.IsAllDayEvent</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Calendar</label>
+    <pageAccesses>
+        <apexPage>Calendar</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+</PermissionSet>
