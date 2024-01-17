@@ -1,6 +1,6 @@
 <aura:documentation>
 	<aura:description>
-		<p>Author: Matt Jants</p>
+		<p>Author: MJ12358</p>
 	</aura:description>
 	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
 		Example Description
